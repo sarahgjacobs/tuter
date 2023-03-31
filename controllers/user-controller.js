@@ -24,7 +24,7 @@ module.exports = {
       .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
   },
-  // Delete a student and remove them from the course
+  // Delete a student 
   deleteUser(req, res) {
     User.findOneAndDelete({_id: req.params.userId})
     .then(user => {
@@ -35,17 +35,18 @@ module.exports = {
     })
     .catch(err => res.status(500).json(err))
   },
+}
 
   // Add an assignment to a student
-  addFriend(req, res) {
-    User.findOneAndUpdate({_id: req.params.userId}, {$addToSet: {friends: req.params.friendId}}, {new: true})
-    .then((user) => res.json(user))
-    .catch((err) => res.status(500).json(err));
-  },
-  // Remove assignment from a student
-  removeFriend(req, res) {
-    User.findOneAndUpdate({_id: req.params.userId}, {$pull: {friends: req.params.friendId}}, {new: true})
-    .then((user) => res.json(user))
-    .catch((err) => res.status(500).json(err));
-  },
-};
+//   addFriend(req, res) {
+//     User.findOneAndUpdate({_id: req.params.userId}, {$addToSet: {friends: req.params.friendId}}, {new: true})
+//     .then((user) => res.json(user))
+//     .catch((err) => res.status(500).json(err));
+//   },
+//   // Remove assignment from a student
+//   removeFriend(req, res) {
+//     User.findOneAndUpdate({_id: req.params.userId}, {$pull: {friends: req.params.friendId}}, {new: true})
+//     .then((user) => res.json(user))
+//     .catch((err) => res.status(500).json(err));
+//   },
+// };
